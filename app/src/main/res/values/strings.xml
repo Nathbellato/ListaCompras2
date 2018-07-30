@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ListaCompras2</string>
+    <string name="title_home">Minha Lista</string>
+    <string name="title_itens">Itens</string>
+    <string name="title_resumo">Resumo</string>
+
+</resources>
