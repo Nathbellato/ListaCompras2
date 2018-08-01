@@ -3,6 +3,8 @@ package com.example.ncbel.listacompras2
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.StaggeredGridLayoutManager
+import android.widget.ListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -31,12 +33,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val recyclerView = note_list_recyclerview
+        recyclerView.adapter = ListAdapter(notes(), this)
+        val layoutManager = StaggeredGridLayoutManager(
+                2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
+
 
         createFragmentMinhaLista()
-
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
+
+    private fun notes(): List<Note>{
+        return listOf(
+                Note("TEste1"),
+                Note("Testeeeeee2"),
+                Note("eudes"))
+    }
+
+
 
     fun createFragmentMinhaLista(){
 
